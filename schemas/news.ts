@@ -1,5 +1,3 @@
-import blockContent from './blockContent'
-
 export default {
   name: 'news',
   type: 'document',
@@ -16,39 +14,19 @@ export default {
       title: 'Description',
     },
     {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 200, // will be ignored if slugify is set
-        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-      },
+      name: 'date',
+      type: 'date',
+      title: 'Published Date',
+    },
+    {
+      title: 'Url',
+      name: 'Url',
+      type: 'url',
     },
     {
       name: 'image',
       type: 'image',
       title: 'Header Image',
-    },
-    {
-      title: 'Body',
-      name: 'body',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-        {
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-          fields: [
-            {name: 'alt', title: 'Alt Description', type: 'string'},
-            {name: 'attribution', title: 'Attribution', type: 'string'},
-          ],
-        },
-      ],
     },
   ],
 }
